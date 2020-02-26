@@ -1,0 +1,11 @@
+!! Missing figures in Markdown
+
+The following figures are not covered by Markdow syntax :
+- reference through anchor to refer to a section in your document
+- definition list
+- comment
+- format: strikethrough, subscript, superscript, underlined
+- environment: \{\{\{ ... \}\}\}
+- tables: they seem to exist in some particular spec, but we didn't find them in CommonMark ones
+
+As a consequence we can think of using Pillar syntax to generate those figures, as the current Pillar parser is working.

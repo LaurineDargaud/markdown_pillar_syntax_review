@@ -1,0 +1,256 @@
+% -*- mode: latex; -*- mustache tags:  
+\documentclass[10pt,twoside,english]{_support/latex/sbabook/sbabook}
+\let\wholebook=\relax
+
+\usepackage{import}
+\subimport{_support/latex/}{common.tex}
+
+%=================================================================
+% Debug packages for page layout and overfull lines
+% Remove the showtrims document option before printing
+\ifshowtrims
+  \usepackage{showframe}
+  \usepackage[color=magenta,width=5mm]{_support/latex/overcolored}
+\fi
+
+
+% =================================================================
+\title{Mardown and Pillar: syntax review}
+\author{Laurine Dargaud}
+\series{Pillar support}
+
+\hypersetup{
+  pdftitle = {Mardown and Pillar: syntax review},
+  pdfauthor = {Laurine Dargaud},
+  pdfkeywords = {Markdown, Pillar, Pharo, Smalltalk}
+}
+
+
+% =================================================================
+\begin{document}
+
+% Title page and colophon on verso
+\maketitle
+\pagestyle{titlingpage}
+\thispagestyle{titlingpage} % \pagestyle does not work on the first one…
+
+\cleartoverso
+{\small
+
+  Copyright 2017 by Laurine Dargaud.
+
+  The contents of this book are protected under the Creative Commons
+  Attribution-ShareAlike 3.0 Unported license.
+
+  You are \textbf{free}:
+  \begin{itemize}
+  \item to \textbf{Share}: to copy, distribute and transmit the work,
+  \item to \textbf{Remix}: to adapt the work,
+  \end{itemize}
+
+  Under the following conditions:
+  \begin{description}
+  \item[Attribution.] You must attribute the work in the manner specified by the
+    author or licensor (but not in any way that suggests that they endorse you
+    or your use of the work).
+  \item[Share Alike.] If you alter, transform, or build upon this work, you may
+    distribute the resulting work only under the same, similar or a compatible
+    license.
+  \end{description}
+
+  For any reuse or distribution, you must make clear to others the
+  license terms of this work. The best way to do this is with a link to
+  this web page: \\
+  \url{http://creativecommons.org/licenses/by-sa/3.0/}
+
+  Any of the above conditions can be waived if you get permission from
+  the copyright holder. Nothing in this license impairs or restricts the
+  author's moral rights.
+
+  \begin{center}
+    \includegraphics[width=0.2\textwidth]{_support/latex/sbabook/CreativeCommons-BY-SA.pdf}
+  \end{center}
+
+  Your fair dealing and other rights are in no way affected by the
+  above. This is a human-readable summary of the Legal Code (the full
+  license): \\
+  \url{http://creativecommons.org/licenses/by-sa/3.0/legalcode}
+
+  \vfill
+
+  % Publication info would go here (publisher, ISBN, cover design…)
+  Layout and typography based on the \textcode{sbabook} \LaTeX{} class by Damien
+  Pollet.
+}
+
+
+\frontmatter
+\pagestyle{plain}
+
+\tableofcontents*
+\clearpage\listoffigures
+
+\mainmatter
+
+\chapter{Equivalence of notations}\section{Headers for sections}
+In Markdown: \textcode{\#}
+
+\begin{displaycode}{plain}
+ # Title 1
+## Title 2
+### Title 3
+\end{displaycode}
+
+In Pillar: \textcode{!}
+
+\begin{displaycode}{plain}
+! Title 1
+!! Title 2
+!!! Title 3
+\end{displaycode}
+\section{Bulleted lists}
+In Markdown: \textcode{*}
+
+\begin{displaycode}{plain}
+* element a
+* element b
+* element c
+\end{displaycode}
+
+In Pillar: \textcode{-}
+
+\begin{displaycode}{plain}
+- element a
+- element b
+- element c
+\end{displaycode}
+\section{Numbered lists}
+In Markdown: n.
+
+\begin{displaycode}{plain}
+1. first element
+2. second element
+3. third element
+\end{displaycode}
+
+In Pillar: \textcode{\#}
+
+\begin{displaycode}{plain}
+# first element
+# second element
+# third element
+\end{displaycode}
+\section{Nested lists}
+In Mardown: just a tab
+
+\begin{displaycode}{plain}
+1. chap1
+    1. chap 1-1
+    2. chap 1-2
+        - element a 
+        - element b
+2. chap 2
+\end{displaycode}
+
+In Pillar: write associated symbols after one another
+
+\begin{displaycode}{plain}
+# chap 1
+## chap 1-1
+## chap 1-2
+##- element a 
+##- element b
+# chap 2
+\end{displaycode}
+
+It gives:
+
+\begin{enumerate}
+\item chap 1
+\begin{enumerate}
+\item chap 1-1
+\item chap 1-2
+\begin{itemize}
+\item element a 
+\item element b
+\end{itemize}
+
+\end{enumerate}
+
+\item chap 2
+\end{enumerate}
+\section{Formatting}
+You surround the text you want to format with the following symbol:
+
+\begin{itemize}
+\item \textbf{bold}: \textcode{**your text**} in Markdown, \textcode{\symbol{34}\symbol{34}your text\symbol{34}\symbol{34}} in Pillar
+\item \textit{italic}: \textcode{*your text*} in Markdown, \textcode{''your text''} in Pillar
+\item \textcode{code}: \textcode{`your text`} in Markdown, \textcode{==your text==} in Pillar
+\end{itemize}
+\section{Links}
+In Markdown:
+
+\begin{displaycode}{plain}
+[name_of_link](url)
+\end{displaycode}
+
+In Pillar:
+
+\begin{displaycode}{plain}
+*name_of_link>url*
+\end{displaycode}
+\section{Images}
+In Markdown:
+
+\begin{displaycode}{plain}
+![name_of_picture](link_to_picture)
+\end{displaycode}
+
+In Pillar:
+
+\begin{displaycode}{plain}
++name_of_picture>link_to_picture+
+\end{displaycode}
+\section{Code blocks}
+In Markdown: a new line, then a tab and a new line at the end of your code
+
+\begin{displaycode}{plain}
+/ a new line
+    type your code with a tab before
+/ a new line
+\end{displaycode}
+
+In Pillar:
+
+\begin{verbatim}
+[[[
+type your code
+]]]
+\end{verbatim}
+\section{Notes \& Quotes}
+Note and quote are not exactly equivalent, but both are used to insert a text in another context.
+
+In Markdown:
+
+\begin{displaycode}{plain}
+> your quote
+\end{displaycode}
+
+In Pillar: use an anchor
+
+\begin{displaycode}{plain}
+@@note your note
+\end{displaycode}
+
+
+
+\bibliographystyle{alpha}
+\bibliography{book.bib}
+
+% lulu requires an empty page at the end. That's why I'm using
+% \backmatter here.
+\backmatter
+
+% Index would go here
+
+\end{document}

@@ -1,0 +1,10 @@
+!!Introduction
+
+Pillar is a document generator written in Pharo. It allows you to publish books, documentation or even slides support from files written in Pillar, the associated markup syntax. Pillar can generate LaTex, PDF, HTML documents.
+
+Nonetheless, Pillar is only able to read and parse Pillar syntax for now. We aim to parse more common syntax to make our tool more approachable and friendlier. 
+
+Thus you will find in this review the equivalence of notation between Pillar and Mardown. It will be useful for writing a parser based on Markdown conventions for Pillar.
+We focus here on the most common notations used in Markdown so we are not exhaustive.
+
+We use the Markdown specifications detailed by *CommonMark>https://spec.commonmark.org/0.29/#images*

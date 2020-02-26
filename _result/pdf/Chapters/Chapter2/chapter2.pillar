@@ -1,0 +1,140 @@
+!! Equivalence of notations
+
+!!! Headers for sections
+
+In Markdown: ==#==
+[[[
+ # Title 1
+## Title 2
+### Title 3
+]]]
+
+In Pillar: ==!==
+[[[
+! Title 1
+!! Title 2
+!!! Title 3
+]]]
+
+!!! Bulleted lists
+
+In Markdown: ==*==
+[[[
+* element a
+* element b
+* element c
+]]]
+
+In Pillar: ==-==
+[[[
+- element a
+- element b
+- element c
+]]]
+
+!!! Numbered lists
+
+In Markdown: n.
+[[[
+1. first element
+2. second element
+3. third element
+]]]
+
+In Pillar: ==#==
+[[[
+# first element
+# second element
+# third element
+]]]
+
+!!! Nested lists
+
+In Mardown: just a tab
+[[[
+1. chap1
+    1. chap 1-1
+    2. chap 1-2
+        - element a 
+        - element b
+2. chap 2
+]]]
+
+In Pillar: write associated symbols after one another
+[[[
+# chap 1
+## chap 1-1
+## chap 1-2
+##- element a 
+##- element b
+# chap 2
+]]]
+
+It gives:
+
+# chap 1
+## chap 1-1
+## chap 1-2
+##- element a 
+##- element b
+# chap 2
+
+!!! Formatting
+
+You surround the text you want to format with the following symbol:
+- ""bold"": ==**your text**== in Markdown, ==\"\"your text\"\"== in Pillar
+- ''italic'': ==\*your text\*== in Markdown, ==\'\'your text\'\'== in Pillar
+- ==code==: ==`your text`== in Markdown, ==\=\=your text\=\=== in Pillar
+
+!!! Links
+
+In Markdown:
+[[[
+[name_of_link](url)
+]]]
+
+In Pillar:
+[[[
+*name_of_link>url*
+]]]
+
+!!! Images
+
+In Markdown:
+[[[
+![name_of_picture](link_to_picture)
+]]]
+
+In Pillar:
+[[[
++name_of_picture>link_to_picture+
+]]]
+
+!!! Code blocks
+
+In Markdown: a new line, then a tab and a new line at the end of your code
+[[[
+/ a new line
+    type your code with a tab before
+/ a new line
+]]]
+
+In Pillar:
+= [[[
+= type your code
+= ]]]
+
+!!! Notes & Quotes
+
+Note and quote are not exactly equivalent, but both are used to insert a text in another context.
+
+In Markdown:
+[[[
+> your quote
+]]]
+
+In Pillar: use an anchor
+[[[
+@@note your note
+]]]
+
